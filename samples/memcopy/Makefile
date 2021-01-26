@@ -7,7 +7,7 @@
 #* ASPLOS13, March 2013, Houston,USA
 #*/
 
-CUDA_ROOT:=/usr/local/cuda
+CUDA_ROOT?=/usr/local/cuda
 GPUFSROOTDIR?=../../
 
 GPUFSINCLUDEDIR=$(GPUFSROOTDIR)/include
@@ -17,7 +17,7 @@ CUDA_INCLUDE=-I$(GPUFSROOTDIR)/include -I$(CUDA_ROOT)/include
 CUDA_LIB=-L$(GPUFSROOTDIR)/lib -L$(CUDA_ROOT)/lib64 -lgpufs -lcudart
 
 CXXFLAGS=-O2 $(CUDA_INCLUDE) $(CUDA_LIB)
-NVCCFLAGS=-O2 $(CUDA_INCLUDE) $(CUDA_LIB) --std=c++11 --generate-code code=sm_35,arch=compute_35 -maxrregcount 32
+NVCCFLAGS=-O2 $(CUDA_INCLUDE) $(CUDA_LIB) --std=c++11 --generate-code code=sm_70,arch=compute_70 -maxrregcount 32
 
 NVCC=$(CUDA_ROOT)/bin/nvcc
 
